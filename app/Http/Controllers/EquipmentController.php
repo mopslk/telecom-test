@@ -31,8 +31,7 @@ class EquipmentController extends Controller
      */
     public function store(EquipmentStoreRequest $request)
     {
-        return response()
-            ->json(['success' => Equipment::createEquipment($request->validated())]);
+        return $this->apiResponse(Equipment::createEquipment($request->validated()));
     }
 
     /**
@@ -56,8 +55,7 @@ class EquipmentController extends Controller
     public function update(EquipmentUpdateRequest $request, Equipment $equipment)
     {
         $equipment->update($request->validated());
-        return response()
-            ->json(['message' => 'Оборудование успешно обновлено', 'success' => EquipmentResource::make($equipment)]);
+        return $this->apiResponse(EquipmentResource::make($equipment));
     }
 
     /**
@@ -69,7 +67,6 @@ class EquipmentController extends Controller
     public function destroy(Equipment $equipment)
     {
         $equipment->delete();
-        return response()
-            ->json(['message' => 'Оборудование успешно удалено', 'success' => $equipment]);
+        return $this->apiResponse($equipment);
     }
 }
