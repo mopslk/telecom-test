@@ -3,9 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 
-class EquipmentResource extends JsonResource
+class EquipmentResource extends BaseEquipmentResource
 {
     /**
      * Transform the resource into an array.
@@ -13,18 +12,15 @@ class EquipmentResource extends JsonResource
      * @param Request $request
      * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
-        return [
-            'id' => $this->id,
+        return array_merge(parent::toArray($request),[
             'equipment_type' => [
                 'id' => $this->type->id,
                 'name' => $this->type->name,
             ],
             'serial_number' => $this->serial_number,
             'description' => $this->description,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ];
+        ]);
     }
 }

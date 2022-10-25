@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EquipmentTypeResource extends JsonResource
+class BaseEquipmentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,9 +15,10 @@ class EquipmentTypeResource extends JsonResource
      */
     public function toArray($request): array
     {
-        return array_merge(parent::toArray($request),[
-            'name' => $this->name,
-            'mask' => $this->mask,
-        ]);
+        return [
+            'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ];
     }
 }
