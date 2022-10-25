@@ -19,5 +19,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource('/equipment', EquipmentController::class);
-Route::get('/equipment-type', [EquipmentTypeController::class, 'index'])
-    ->name('equipment-type.index');
+Route::get('/equipment-type', [EquipmentTypeController::class, 'index']);

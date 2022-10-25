@@ -37,11 +37,8 @@ class EquipmentController extends Controller
      */
     public function store(EquipmentStoreRequest $request)
     {
-        $data = $request->validated();
-        $values = Equipment::createEquipment($data);
-
         return response()
-            ->json(['success' => $values]);
+            ->json(['success' => Equipment::createEquipment($request->validated())]);
     }
 
     /**
