@@ -34,6 +34,9 @@ class Equipment extends Model
 
     public function scopeSearch($query, $q)
     {
-        return $query->where('serial_number', 'like', "%{$q}%");
+        return $query->when($q, function ($query, $q) {
+            return $query->where('serial_number', 'like', "%{$q}%")
+                ->orWhere('description', 'like', "%{$q}%");
+        })->paginate(10);
     }
 }

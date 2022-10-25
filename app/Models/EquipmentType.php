@@ -22,6 +22,8 @@ class EquipmentType extends Model
 
     public function scopeSearch($query, $q)
     {
-        return $query->where('name', 'like', "%{$q}%");
+        return $query->when($q, function ($query, $q) {
+            return $query->where('name', 'like', "%{$q}%");
+        })->paginate(10);
     }
 }

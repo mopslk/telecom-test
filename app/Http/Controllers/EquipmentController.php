@@ -20,13 +20,7 @@ class EquipmentController extends Controller
      */
     public function index(Request $request)
     {
-        $equipments = Equipment::query()
-            ->when($request->has('q'),
-                function ($query) use ($request) {
-                    return $query->search($request->input('q'));
-                })->paginate(10);
-
-        return EquipmentResource::collection($equipments);
+        return EquipmentResource::collection(Equipment::search($request->input('q')));
     }
 
     /**
