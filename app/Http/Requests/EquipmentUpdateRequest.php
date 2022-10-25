@@ -2,11 +2,13 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
+/**
+ * @property int $type_id
+ * @property int $serial_number
+ * @property string $description
+ */
 
-class EquipmentUpdateRequest extends FormRequest
+class EquipmentUpdateRequest extends EquipmentStoreRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,12 +32,5 @@ class EquipmentUpdateRequest extends FormRequest
             'serial_number' => 'numeric|unique:equipment,serial_number|max_digits:10',
             'description' => 'string|max:255',
         ];
-    }
-
-    public function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response()->json([
-            'errors' => $validator->errors()
-        ]));
     }
 }
