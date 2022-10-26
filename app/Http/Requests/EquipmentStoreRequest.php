@@ -6,6 +6,11 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
+/**
+ * @property int $type_id
+ * @property string $description
+ */
+
 class EquipmentStoreRequest extends FormRequest
 {
     /**
@@ -27,7 +32,6 @@ class EquipmentStoreRequest extends FormRequest
     {
         return [
             '*.type_id' => 'required|integer|exists:equipment_types,id',
-            '*.serial_number' => 'required|numeric|unique:equipment,serial_number|max_digits:10',
             '*.description' => 'required|string|max:255',
         ];
     }

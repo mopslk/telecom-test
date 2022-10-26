@@ -50,12 +50,11 @@ class EquipmentController extends Controller
      *
      * @param EquipmentUpdateRequest $request
      * @param Equipment $equipment
-     * @return JsonResponse
+     * @return EquipmentResource
      */
     public function update(EquipmentUpdateRequest $request, Equipment $equipment)
     {
-        $equipment->update($request->validated());
-        return EquipmentResource::make($equipment);
+        return EquipmentResource::make(Equipment::updateEquipment($request->validated(), $equipment));
     }
 
     /**

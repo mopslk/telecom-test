@@ -29,7 +29,6 @@ class EquipmentUpdateRequest extends EquipmentStoreRequest
     {
         return [
             'type_id' => 'integer|exists:equipment_types,id',
-            'serial_number' => 'numeric|unique:equipment,serial_number|max_digits:10',
             'description' => 'string|max:255',
         ];
     }
