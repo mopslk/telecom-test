@@ -15,4 +15,4 @@
 <li>Запустить сервер <code>php artisan serve</code></li>
 </ul>
 
-<p>Документация к api: <a href="https://app.swaggerhub.com/apis/MOPSIK3281/Telecom-test/1.0.0">Перейти</a></p>
+<p>Документация к api: <a target="_blank" href="https://app.swaggerhub.com/apis/MOPSIK3281/Telecom-test/1.0.0">Перейти</a></p>
