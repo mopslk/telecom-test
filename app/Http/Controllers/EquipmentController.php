@@ -55,7 +55,7 @@ class EquipmentController extends Controller
     public function update(EquipmentUpdateRequest $request, Equipment $equipment)
     {
         $equipment->update($request->validated());
-        return $this->apiResponse(EquipmentResource::make($equipment));
+        return EquipmentResource::make($equipment);
     }
 
     /**
@@ -67,6 +67,6 @@ class EquipmentController extends Controller
     public function destroy(Equipment $equipment)
     {
         $equipment->delete();
-        return $this->apiResponse($equipment);
+        return EquipmentResource::make($equipment);
     }
 }

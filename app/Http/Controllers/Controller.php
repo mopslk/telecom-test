@@ -15,7 +15,7 @@ class Controller extends BaseController
     public function apiResponse($data = [], $statusCode = 200): JsonResponse
     {
         return response()->json([
-            'success' => $data
+            $data
         ], $statusCode);
     }
 }

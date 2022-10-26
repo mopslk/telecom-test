@@ -18,6 +18,7 @@ class EquipmentResource extends BaseEquipmentResource
             'equipment_type' => [
                 'id' => $this->type->id,
                 'name' => $this->type->name,
+                'mask' => $this->type->mask,
             ],
             'serial_number' => $this->serial_number,
             'description' => $this->description,
