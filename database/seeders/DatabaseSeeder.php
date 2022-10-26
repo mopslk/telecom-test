@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        EquipmentType::factory(10)->create()->each(function ($type) {
+        EquipmentType::factory(10)->create()->each(function (EquipmentType $type) {
             Equipment::factory(2)->create([
                 'type_id' => $type->id,
             ]);

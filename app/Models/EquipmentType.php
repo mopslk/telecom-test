@@ -15,7 +15,7 @@ class EquipmentType extends Model
         'mask',
     ];
 
-    public function equipment(): HasMany
+    public function equipments(): HasMany
     {
         return $this->hasMany(Equipment::class);
     }
