@@ -28,7 +28,7 @@ class EquipmentUpdateRequest extends EquipmentStoreRequest
     public function rules(): array
     {
         return [
-            'type_id' => 'integer|exists:equipment_types,id',
+            'type_id' => 'required|integer|exists:equipment_types,id',
             'description' => 'string|max:255',
         ];
     }
