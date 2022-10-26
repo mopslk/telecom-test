@@ -6,28 +6,28 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class EquipmentTypeTest extends TestCase
+class EquipmentTypeControllerTest extends TestCase
 {
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function test_example(): void
+    public function test_index(): void
     {
         $response = $this->get('/api/equipment-type');
 
         $response
             ->assertStatus(200)
-            ->assertJson([
+            ->assertJsonStructure([
                 'data' => [
                     [
-                        'id' => true,
-                        'name' => true,
-                        'mask' => true,
+                        'id',
+                        'name',
+                        'mask',
                     ]
                 ],
-                'links' => true
+                'links'
             ]);
     }
 }
